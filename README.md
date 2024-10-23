@@ -44,7 +44,7 @@ class Solution {
         // All other cases: substrings of length 3 to n
         for (int len = 3; len <= n; len++) {
             for (int i = 0, j = i + len - 1; j < n; i++, j++) {
-                dp[i][j] = dp[i + 1][j - 1] && (s.charAt(i) == s.charAt(j));
+                dp[i][j] = (s.charAt(i) == s.charAt(j)) && dp[i + 1][j - 1];
                 ans += (dp[i][j] ? 1 : 0);
             }
         }
